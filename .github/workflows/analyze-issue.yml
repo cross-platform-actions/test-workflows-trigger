@@ -12,4 +12,3 @@ jobs:
       issues: write
     with:
       issue_number: ${{ github.event.issue.number }}
-    secrets: inherit
