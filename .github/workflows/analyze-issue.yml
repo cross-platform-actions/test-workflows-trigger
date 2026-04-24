@@ -10,5 +10,6 @@ jobs:
     permissions:
       contents: read
       issues: write
+      id-token: write
     with:
       issue_number: ${{ github.event.issue.number }}
