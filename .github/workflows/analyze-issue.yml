@@ -1,0 +1,15 @@
+name: Analyze Issue
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  analyze-issue:
+    uses: cross-platform-actions/test-workflows/.github/workflows/analyze-issue.yml@master
+    permissions:
+      contents: read
+      issues: write
+    with:
+      issue_number: ${{ github.event.issue.number }}
+    secrets: inherit
