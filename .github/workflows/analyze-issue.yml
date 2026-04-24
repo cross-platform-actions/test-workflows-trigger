@@ -5,6 +5,19 @@ on:
     types: [created]
 
 jobs:
+  debug-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check ANTHROPIC_API_KEY in caller
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "CALLER: ANTHROPIC_API_KEY is EMPTY"
+          else
+            echo "CALLER: ANTHROPIC_API_KEY is set (length=${#KEY})"
+          fi
+
   analyze-issue:
     uses: cross-platform-actions/test-workflows/.github/workflows/analyze-issue.yml@master
     permissions:
