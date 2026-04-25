@@ -13,5 +13,6 @@ jobs:
       id-token: write
     with:
       issue_number: ${{ github.event.issue.number }}
-    secrets:
-      anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+    secrets: inherit
+    # secrets:
+    #   anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
